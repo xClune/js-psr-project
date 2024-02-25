@@ -1,0 +1,54 @@
+/* Globals */
+html, body {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+
+    background-color: slateblue;
+    color: whitesmoke;
+}
+
+/* Game Display */
+
+.game-display {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 50vh;
+    justify-items: center;
+
+    padding-top: 20px;
+
+    background-color: lightgray;
+}
+
+/* Controls */
+
+.user-controls {
+    display: flex;
+    justify-content: center;
+
+    padding: 50px;
+
+    background-color: slateblue;
+}
+
+.btn {
+    margin: 6px 30px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px;
+    width: 100px;
+
+    font-weight: bold;
+    background-color: whitesmoke;
+    border: none;
+}

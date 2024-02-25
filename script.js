@@ -56,6 +56,5 @@ function playGame() {
     console.log((playerScore > computerScore) ? 'Player Wins' : 'Computer Wins');
 }
 
-playGame();
 
 
