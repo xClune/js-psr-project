@@ -2,14 +2,21 @@
 // change input method to buttons
 // display image under choice
 
-let playerChoice = document.querySelector('.js-player-choice');
-let comChoice = document.querySelector('.js-com-choice');
+// DOM
+let playerChoiceDisplay = document.querySelector('.js-player-choice');
+let comChoiceDisplay = document.querySelector('.js-com-choice');
 
 let playerScoreDisplay = document.querySelector('.js-player-score');
 let comScoreDisplay = document.querySelector('.js-com-score');
 
+// Variables
+let playerScore = 0;
+let comScore = 0;
+let playerChoice;
+let comChoice;
 
-function getComputerChoice() {
+// randomly selects computer choice
+function getComChoice() {
     selector = Math.floor(Math.random() * 3 + 1);
     if (selector <= 1) {
         return 'Paper';
@@ -20,8 +27,8 @@ function getComputerChoice() {
     }
 }
 
+// plays a single round and returns player outcome
 function playRound(comChoice, playerChoice) {
-    let playerResult;
     if (comChoice === 'Rock' && playerChoice === 'rock') {
         return playerResult = 'tie';
     } else if (comChoice === 'Rock' && playerChoice === 'paper') {
@@ -43,32 +50,41 @@ function playRound(comChoice, playerChoice) {
     }
 }
 
-function playGame() {
-    let playerScore = 0;
-    let computerScore = 0;
-    let computerChoice;
+function playGame(playerChoice) {
+    console.log('player');
+    comChoice = getComChoice();
+    result = playRound(comChoice, playerChoice);
 
-    while (playerScore < 5 && computerScore < 5) {
-        userInput = (prompt("Enter: 'rock', 'paper' or 'scissors'.")).toLowerCase();
-        computerChoice = getComputerChoice();
+    // update choice display
+    comChoiceDisplay.innerHTML = `Computer: ${comChoice}`;
+    playerChoiceDisplay.innerHTML = `Player: ${playerChoice}`;
 
-        comChoice.innerHTML = computerChoice;
-        playerChoice.innerHTML = computerChoice;
-
-        result = playRound(computerChoice, userInput);
-
-        if (result === 'win') {
-            playerScore++;
-            playerScoreDisplay.innerHTML = `SCORE: ${playerScore}`;
-        } else if (result === 'loss') {
-            computerScore++;
-            comScoreDisplay.innerHTML = `SCORE: ${computerScore}`;
-        }
+    if (result === 'win') {
+        playerScore++;
+        playerScoreDisplay.innerHTML = `SCORE: ${playerScore}`;
+        comScoreDisplay.innerHTML = `SCORE: ${comScore}`;
+    } else if (result === 'loss') {
+        comScore++;
+        playerScoreDisplay.innerHTML = `SCORE: ${playerScore}`;
+        comScoreDisplay.innerHTML = `SCORE: ${comScore}`;
     }
-    (playerScore > computerScore) ? playerScoreDisplay.innerHTML = 'Player Wins!' : comScoreDisplay.innerHTML = 'Com Wins!';
 }
 
-playGame();
+// EVENT LISTENERS
+// player clicks rock
+document.querySelector('.js-btn-rock').addEventListener(("click"), () => {
+    playGame('rock')
+});
+
+// player clicks paper
+document.querySelector('.js-btn-paper').addEventListener(("click"), () => {
+    playGame('paper')
+});
+
+// player clicks scissors
+document.querySelector('.js-btn-scissors').addEventListener(("click"), () => {
+    playGame('scissors')
+});
 
 
 
