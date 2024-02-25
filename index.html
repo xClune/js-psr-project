@@ -6,24 +6,31 @@
         <link rel="stylesheet" href="style.css">       
     </head>
     <body>
-        <script src="script.js"></script>
         <header class="header">
             <div class="tile"> ROCK PAPER SCISSORS</div>
         </header>
         <div class="game-display">
-            <div class="com-choice">Computer Choice</div>
-            <div class="player-choice">Player Choice</div>
+            <div class="com-choice js-com-choice">Computer Choice</div>
+            <div class="player-choice js-player-choice">Player Choice</div>
+
+        <div class="com-score js-com-score">
+            SCORE:
+        </div>
+        <div class="player-score js-player-score">
+            SCORE:
+        </div>
         </div>
             <div class="user-controls">
                 <div>
-                    <button class="btn btn-rock js-btn-rock">Rock</button>
+                    <button class="btn btn-rock js-btn-rock"><img class="btn-img" src="./img/rock-emoji.png"></button>
                 </div>
                 <div>
-                    <button class="btn btn-paper js-btn-paper">Paper</button>
+                    <button class="btn btn-paper js-btn-paper"><img class="btn-img" src="./img/paper-emoji.png"></button>
                 </div>
                 <div>
-                    <button class="btn btn-scissors js-btn-scissors">Scissors</button>
+                    <button class="btn btn-scissors js-btn-scissors"><img class="btn-img" src="./img/scissors-emoji.png"></button>
                 </div>
             </div>
+         <script src="script.js"></script>
     </body>
 </html>

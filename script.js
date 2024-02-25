@@ -1,3 +1,13 @@
+// FIRST NEXT SESSION
+// change input method to buttons
+// display image under choice
+
+let playerChoice = document.querySelector('.js-player-choice');
+let comChoice = document.querySelector('.js-com-choice');
+
+let playerScoreDisplay = document.querySelector('.js-player-score');
+let comScoreDisplay = document.querySelector('.js-com-score');
+
 
 function getComputerChoice() {
     selector = Math.floor(Math.random() * 3 + 1);
@@ -41,20 +51,24 @@ function playGame() {
     while (playerScore < 5 && computerScore < 5) {
         userInput = (prompt("Enter: 'rock', 'paper' or 'scissors'.")).toLowerCase();
         computerChoice = getComputerChoice();
-        console.log(computerChoice);
-        console.log(userInput);
+
+        comChoice.innerHTML = computerChoice;
+        playerChoice.innerHTML = computerChoice;
+
         result = playRound(computerChoice, userInput);
-        console.log(result);
 
         if (result === 'win') {
             playerScore++;
+            playerScoreDisplay.innerHTML = `SCORE: ${playerScore}`;
         } else if (result === 'loss') {
             computerScore++;
+            comScoreDisplay.innerHTML = `SCORE: ${computerScore}`;
         }
-        console.log(playerScore, computerScore);
     }
-    console.log((playerScore > computerScore) ? 'Player Wins' : 'Computer Wins');
+    (playerScore > computerScore) ? playerScoreDisplay.innerHTML = 'Player Wins!' : comScoreDisplay.innerHTML = 'Com Wins!';
 }
+
+playGame();
 
 
 

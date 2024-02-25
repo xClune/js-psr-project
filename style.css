@@ -52,3 +52,7 @@ header {
     background-color: whitesmoke;
     border: none;
 }
+
+.btn-img {
+    width: 100%;
+}
