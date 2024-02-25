@@ -1,6 +1,7 @@
-// FIRST NEXT SESSION
-// change input method to buttons
+// NEXT SESSION
 // display image under choice
+// more visuals displaying who won
+// local storage & reset score function
 
 // DOM
 let playerChoiceDisplay = document.querySelector('.js-player-choice');
