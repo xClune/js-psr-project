@@ -22,10 +22,38 @@ header {
 .game-display {
     display: grid;
     grid-template-columns: auto auto;
-    grid-template-rows: 50vh;
+    grid-template-rows: 10vh;
     justify-items: center;
 
     padding-top: 20px;
+
+    background-color: lightgray;
+}
+
+.result-display {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+
+    background-color: lightgrey;
+}
+
+#result-text {
+    font-weight: bold;
+}
+
+.win {
+    color: greenyellow;
+}
+
+.loss{
+    color: orange;
+}
+
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     background-color: lightgray;
 }
@@ -46,7 +74,8 @@ header {
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 1px 1px;
-    width: 100px;
+    width: auto;
+    max-width: 250px;
 
     font-weight: bold;
     background-color: whitesmoke;
