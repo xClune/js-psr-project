@@ -10,29 +10,52 @@ function getComputerChoice() {
     }
 }
 
-function playGame(comChoice, playerChoice) {
+function playRound(comChoice, playerChoice) {
+    let playerResult;
     if (comChoice === 'Rock' && playerChoice === 'rock') {
-        return "Computer selected Rock. Tie."
+        return playerResult = 'tie';
     } else if (comChoice === 'Rock' && playerChoice === 'paper') {
-        return "Player wins. Computer selected Rock."
+        return playerResult = 'win';
     } else if (comChoice === 'Rock' && playerChoice === 'scissors') {
-        return "Computer wins. Computer selected Rock."
+        return playerResult = 'loss';
     } else if (comChoice === 'Paper' && playerChoice === 'rock') {
-        return "Computer wins. Computer selected Paper."
+        return playerResult = 'loss';
     } else if (comChoice === 'Paper' && playerChoice === 'paper') {
-        return "Tie. Computer selected Paper."
+        return playerResult = 'tie';
     } else if (comChoice === 'Paper' && playerChoice === 'scissors') {
-        return "Player wins. Computer selected Paper."
+        return playerResult = 'win';
     } else if (comChoice === 'Scissors' && playerChoice === 'rock') { 
-        return "Player wins. Computer selected Scissors."
+        return playerResult = 'win';
     } else if (comChoice === 'Scissors' && playerChoice === 'paper') {
-        return "Computer wins. Computer selected Scissors."
+        return playerResult = 'loss';
     } else {
-        return "Tie. Computer selected Scissors."
+        return playerResult = 'tie';
     }
 }
 
-const userInput = (prompt("Enter: 'rock', 'paper' or 'scissors'.")).toLowerCase();
+function playGame() {
+    let playerScore = 0;
+    let computerScore = 0;
+    let computerChoice;
 
-console.log(playGame(getComputerChoice(), userInput));
+    while (playerScore < 5 && computerScore < 5) {
+        userInput = (prompt("Enter: 'rock', 'paper' or 'scissors'.")).toLowerCase();
+        computerChoice = getComputerChoice();
+        console.log(computerChoice);
+        console.log(userInput);
+        result = playRound(computerChoice, userInput);
+        console.log(result);
+
+        if (result === 'win') {
+            playerScore++;
+        } else if (result === 'loss') {
+            computerScore++;
+        }
+        console.log(playerScore, computerScore);
+    }
+    console.log((playerScore > computerScore) ? 'Player Wins' : 'Computer Wins');
+}
+
+playGame();
+
 
