@@ -6,6 +6,10 @@ html, body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+body {
+    background-image: url("/img/psr-bg.jpg");
+}
+
 /* Header */
 header {
     display: flex;
@@ -19,6 +23,16 @@ header {
 
 /* Game Display */
 
+.game-window{
+    max-width: 600px;
+    min-width: 450px;
+    border: 1px solid black;
+    position: relative;
+    top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .game-display {
     display: grid;
     grid-template-columns: auto auto;
@@ -28,6 +42,7 @@ header {
     padding-top: 20px;
 
     background-color: lightgray;
+    border: 2px solid black;
 }
 
 .result-display {
@@ -36,6 +51,7 @@ header {
     padding-bottom: 20px;
 
     background-color: lightgrey;
+    border: 3px solid black;
 }
 
 #result-text {
@@ -56,26 +72,29 @@ header {
     align-items: center;
 
     background-color: lightgray;
+    border: 2px solid black;
 }
 
 /* Controls */
 
 .user-controls {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 
     padding: 50px;
 
     background-color: slateblue;
+    border: 3px solid black;
 }
 
 .btn {
-    margin: 6px 30px;
+    margin: 6px 20px;
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 1px 1px;
-    width: auto;
-    max-width: 250px;
+    max-width: 100px;
+    min-height: 80px;
+    min-width: 100px;
 
     font-weight: bold;
     background-color: whitesmoke;

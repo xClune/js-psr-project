@@ -5,6 +5,7 @@
 // local storage & reset score function
 
 // DOM
+let gameDisplay = document.querySelector('.js-game-display');
 let playerChoiceDisplay = document.querySelector('.js-player-choice');
 let comChoiceDisplay = document.querySelector('.js-com-choice');
 let resultDisplay = document.querySelector('.js-result-display');
@@ -18,6 +19,16 @@ let playerScore = 0;
 let comScore = 0;
 let playerChoice;
 let comChoice;
+
+// Images
+const rockImg = document.createElement("img");
+rockImg.src = "img/rock-emoji.png";
+
+const paperImg = document.createElement("img");
+paperImg.src = "img/paper-emoji.png";
+
+const scissorsImg = document.createElement("img");
+scissorsImg.src = "img/scissors-emoji.png";
 
 // randomly selects computer choice
 function getComChoice() {
@@ -33,21 +44,21 @@ function getComChoice() {
 
 // plays a single round and returns player outcome
 function playRound(comChoice, playerChoice) {
-    if (comChoice === 'Rock' && playerChoice === 'rock') {
+    if (comChoice === 'Rock' && playerChoice === 'Rock') {
         return playerResult = 'tie';
-    } else if (comChoice === 'Rock' && playerChoice === 'paper') {
+    } else if (comChoice === 'Rock' && playerChoice === 'Paper') {
         return playerResult = 'win';
-    } else if (comChoice === 'Rock' && playerChoice === 'scissors') {
+    } else if (comChoice === 'Rock' && playerChoice === 'Scissors') {
         return playerResult = 'loss';
-    } else if (comChoice === 'Paper' && playerChoice === 'rock') {
+    } else if (comChoice === 'Paper' && playerChoice === 'Rock') {
         return playerResult = 'loss';
-    } else if (comChoice === 'Paper' && playerChoice === 'paper') {
+    } else if (comChoice === 'Paper' && playerChoice === 'Paper') {
         return playerResult = 'tie';
-    } else if (comChoice === 'Paper' && playerChoice === 'scissors') {
+    } else if (comChoice === 'Paper' && playerChoice === 'Scissors') {
         return playerResult = 'win';
-    } else if (comChoice === 'Scissors' && playerChoice === 'rock') { 
+    } else if (comChoice === 'Scissors' && playerChoice === 'Rock') { 
         return playerResult = 'win';
-    } else if (comChoice === 'Scissors' && playerChoice === 'paper') {
+    } else if (comChoice === 'Scissors' && playerChoice === 'Paper') {
         return playerResult = 'loss';
     } else {
         return playerResult = 'tie';
@@ -55,47 +66,42 @@ function playRound(comChoice, playerChoice) {
 }
 
 function playGame(playerChoice) {
-    console.log('player');
     comChoice = getComChoice();
     result = playRound(comChoice, playerChoice);
 
     // update choice display
-    comChoiceDisplay.innerHTML = `COM: ${comChoice}`;
-
     playerChoiceDisplay.innerHTML = `PLAYER: ${playerChoice}`;
+    comChoiceDisplay.innerHTML = `COM: ${comChoice}`;
 
     if (result === 'win') {
         playerScore++;
         playerScoreDisplay.innerHTML = `PLAYER SCORE: ${playerScore}`;
         comScoreDisplay.innerHTML = `COM SCORE: ${comScore}`;
         resultDisplay.innerHTML = "YOU WON!";
-        resultText.classList.remove("loss");
-        resultText.classList.add("win");
     } else if (result === 'loss') {
         comScore++;
         playerScoreDisplay.innerHTML = `PLAYER SCORE: ${playerScore}`;
         comScoreDisplay.innerHTML = `COM SCORE: ${comScore}`;
         resultDisplay.innerHTML = "YOU LOST.";
-        resultText.classList.remove("win");
-        resultText.classList.add("loss");
-
+    } else {
+        resultDisplay.innerHTML = "TIE.";
     }
 }
 
 // EVENT LISTENERS
-// player clicks rock
+// player clicks Rock
 document.querySelector('.js-btn-rock').addEventListener(("click"), () => {
-    playGame('rock')
+    playGame('Rock')
 });
 
 // player clicks paper
 document.querySelector('.js-btn-paper').addEventListener(("click"), () => {
-    playGame('paper')
+    playGame('Paper')
 });
 
 // player clicks scissors
 document.querySelector('.js-btn-scissors').addEventListener(("click"), () => {
-    playGame('scissors')
+    playGame('Scissors')
 });
 
 
