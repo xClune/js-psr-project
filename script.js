@@ -10,6 +10,8 @@ let playerChoiceDisplay = document.querySelector('.js-player-choice');
 let comChoiceDisplay = document.querySelector('.js-com-choice');
 let resultDisplay = document.querySelector('.js-result-display');
 let resultText = document.getElementById('#result-text');
+let comResultImg = document.querySelector('.js-com-choice-img');
+let playerResultImg = document.querySelector('.js-player-choice-img');
 
 let playerScoreDisplay = document.querySelector('.js-player-score');
 let comScoreDisplay = document.querySelector('.js-com-score');
@@ -21,14 +23,20 @@ let playerChoice;
 let comChoice;
 
 // Images
-const rockImg = document.createElement("img");
+const rockImg = document.createElement('img');
 rockImg.src = "img/rock-emoji.png";
+const rockImg2 = document.createElement('img');
+rockImg2.src = "img/rock-emoji.png";
 
-const paperImg = document.createElement("img");
+const paperImg = document.createElement('img');
 paperImg.src = "img/paper-emoji.png";
+const paperImg2 = document.createElement('img');
+paperImg2.src = "img/paper-emoji.png";
 
-const scissorsImg = document.createElement("img");
+const scissorsImg = document.createElement('img');
 scissorsImg.src = "img/scissors-emoji.png";
+const scissorsImg2 = document.createElement('img');
+scissorsImg2.src = "img/scissors-emoji.png";
 
 // randomly selects computer choice
 function getComChoice() {
@@ -69,10 +77,51 @@ function playGame(playerChoice) {
     comChoice = getComChoice();
     result = playRound(comChoice, playerChoice);
 
+    playerResultImg.innerHTML = '';
+    comResultImg.innerHTML = '';
+
     // update choice display
     playerChoiceDisplay.innerHTML = `PLAYER: ${playerChoice}`;
     comChoiceDisplay.innerHTML = `COM: ${comChoice}`;
 
+    if (playerChoice == 'Rock'){
+        playerResultImg.appendChild(rockImg);
+        rockImg.style.width = '80px';
+        rockImg.style.height = '80px';
+        rockImg.style.alignSelf = 'center';
+    }
+    if (playerChoice == 'Paper'){
+        playerResultImg.appendChild(paperImg);
+        paperImg.style.width = '80px';
+        paperImg.style.height = '80px';
+        paperImg.style.alignSelf = 'center';
+    }
+    if (playerChoice == 'Scissors'){
+        playerResultImg.appendChild(scissorsImg);
+        scissorsImg.style.width = '80px';
+        scissorsImg.style.height = '80px';
+        scissorsImg.style.alignSelf = 'center';
+    }
+
+    if (comChoice == 'Rock'){
+        comResultImg.appendChild(rockImg2);
+        rockImg2.style.width = '80px';
+        rockImg2.style.height = '80px';
+        rockImg2.style.alignSelf = 'center';
+    }
+    if (comChoice == 'Paper'){
+        comResultImg.appendChild(paperImg2);
+        paperImg2.style.width = '80px';
+        paperImg2.style.height = '80px';
+        paperImg2.style.alignSelf = 'center';
+    }
+    if (comChoice == 'Scissors'){
+        comResultImg.appendChild(scissorsImg2);
+        scissorsImg2.style.width = '80px';
+        scissorsImg2.style.height = '80px';
+        scissorsImg2.style.alignSelf = 'center';
+    }
+    
     if (result === 'win') {
         playerScore++;
         playerScoreDisplay.innerHTML = `PLAYER SCORE: ${playerScore}`;
@@ -87,6 +136,8 @@ function playGame(playerChoice) {
         resultDisplay.innerHTML = "TIE.";
     }
 }
+
+// Arbitrary changes for merge.
 
 // EVENT LISTENERS
 // player clicks Rock
