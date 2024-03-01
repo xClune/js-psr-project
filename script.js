@@ -137,8 +137,6 @@ function playGame(playerChoice) {
     }
 }
 
-// Arbitrary changes for merge.
-
 // EVENT LISTENERS
 // player clicks Rock
 document.querySelector('.js-btn-rock').addEventListener(("click"), () => {
